@@ -7,7 +7,51 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+# Laravel Inertia.js React CRUD Application
+This project is a CRUD application for managing products, built with Laravel, Inertia.js, React.js, and Tailwind CSS.
+
+# Prerequisites
+Docker
+Docker Compose
+
+# Getting Started
+Step 1: Clone the Repository## About Laravel
+
+git clone https://github.com/your-repository.git
+cd your-repository
+
+Step 2: Set Up Laravel Sail
+Laravel Sail provides a simple command-line interface for interacting with Laravel's default Docker configuration.
+
+Copy the .env.example file to .env and update the environment variables as needed:
+cp .env.example .env
+
+# Install the dependencies:
+docker run --rm \
+    -u "$(id -u):$(id -g)" \
+    -v "$(pwd)":/var/www/html \
+    -w /var/www/html \
+    laravelsail/php82-composer:latest \
+    composer install
+
+# Start the Laravel Sail services:
+./vendor/bin/sail up
+
+# Run the database migrations:
+./vendor/bin/sail artisan migrate
+
+# Step 3: Install Frontend Dependencies
+
+# Install the NPM dependencies:
+./vendor/bin/sail npm install
+
+# Build the frontend assets:
+./vendor/bin/sail npm run dev
+
+# Access the application in your browser:
+
+http://localhost
+
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
