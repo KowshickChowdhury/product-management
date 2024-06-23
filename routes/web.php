@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Models\Product;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -15,5 +17,11 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    $products = Product::all();
+    return Inertia::render('Home', ['products' => $products]);
 });
+
+// Route::get('/', [ProductController::class, 'index']);
+
+Route::resource('products', ProductController::class);
+Route::post('/products/{id}', [ProductController::class, 'update']);
